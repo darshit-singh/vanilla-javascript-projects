@@ -27,8 +27,9 @@
         }
 
         .content {
-            display: none;
+            max-height: 0px;
             overflow: hidden;
+            transition: max-height 0.5s;
         }
     </style>
 </head>
@@ -92,10 +93,10 @@
         function toggleAccordion(accordion) {
             const content = accordion.nextElementSibling;
             if (clicked) {
-                content.style.display = 'block'; //expand
+                content.style.maxHeight = content.scrollHeight + 'px'; //expand
                 clicked = false;
             } else {
-                content.style.display = 'none'; //collapse
+                content.style.maxHeight = '0px'; //collapse
                 clicked = true;
             }
         }
